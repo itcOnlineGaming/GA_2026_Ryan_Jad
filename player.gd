@@ -3,18 +3,16 @@ extends Area2D
 signal hit
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
-@export var speed_increment = 100 # Speed increase per round
-var base_speed = 400 # Store the base speed
 var screen_size # Size of the game window.
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	base_speed = speed
 	hide()
 
 
-func increase_speed():
-	speed += speed_increment
+func randomize_speed():
+	# Coin toss: 50% chance for 600, 50% chance for 400
+	speed = 600 if randf() < 0.5 else 400
 
 
 func _process(delta):

@@ -26,8 +26,8 @@ func new_game():
 	score = 0
 	round_number += 1
 	
-	# Increment player speed
-	$Player.increase_speed()
+	# Randomize player speed (coin toss between 600 and 400)
+	$Player.randomize_speed()
 	current_speed = $Player.speed
 	
 	$Player.start($StartPosition.position)
